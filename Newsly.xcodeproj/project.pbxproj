@@ -11,7 +11,7 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		52217EDE2E2B8F77004E82FF /* Exceptions for "Newsly" folder in "Newsly" target */ = {
+		52F307E92E2BA5CD0066ED1B /* Exceptions for "Newsly" folder in "Newsly" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
@@ -21,10 +21,10 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		52217ECB2E2B8F76004E82FF /* Newsly */ = {
+		52217F202E2B937A004E82FF /* Newsly */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				52217EDE2E2B8F77004E82FF /* Exceptions for "Newsly" folder in "Newsly" target */,
+				52F307E92E2BA5CD0066ED1B /* Exceptions for "Newsly" folder in "Newsly" target */,
 			);
 			path = Newsly;
 			sourceTree = "<group>";
@@ -45,7 +45,7 @@
 		52217EC02E2B8F76004E82FF = {
 			isa = PBXGroup;
 			children = (
-				52217ECB2E2B8F76004E82FF /* Newsly */,
+				52217F202E2B937A004E82FF /* Newsly */,
 				52217ECA2E2B8F76004E82FF /* Products */,
 			);
 			sourceTree = "<group>";
@@ -74,7 +74,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				52217ECB2E2B8F76004E82FF /* Newsly */,
+				52217F202E2B937A004E82FF /* Newsly */,
 			);
 			name = Newsly;
 			packageProductDependencies = (
@@ -107,6 +107,8 @@
 			);
 			mainGroup = 52217EC02E2B8F76004E82FF;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 52217ECA2E2B8F76004E82FF /* Products */;
 			projectDirPath = "";
