@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+// TODO: API 확인 후 데이터에 맞게 수정
 struct NewsItem: Hashable {
     let id = UUID()
     let title: String
