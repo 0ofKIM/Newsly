@@ -17,26 +17,13 @@ class ViewController: UIViewController, UICollectionViewDelegate {
     
     // MARK: - DiffableDataSource & CompositionalLayout
     private var dataSource: UICollectionViewDiffableDataSource<Section, NewsItem>?
-    
-    // MARK: - Sample Data
-    private var newsItems: [NewsItem] = [
-        NewsItem(title: "첫 번째 뉴스 제목", content: "첫 번째 뉴스의 내용입니다. 이것은 샘플 데이터입니다.", imageURL: nil),
-        NewsItem(title: "두 번째 뉴스 제목", content: "두 번째 뉴스의 내용입니다. 이것은 샘플 데이터입니다.", imageURL: nil),
-        NewsItem(title: "세 번째 뉴스 제목", content: "세 번째 뉴스의 내용입니다. 이것은 샘플 데이터입니다.", imageURL: nil),
-        NewsItem(title: "네 번째 뉴스 제목", content: "네 번째 뉴스의 내용입니다. 이것은 샘플 데이터입니다.", imageURL: nil),
-        NewsItem(title: "다섯 번째 뉴스 제목", content: "다섯 번째 뉴스의 내용입니다. 이것은 샘플 데이터입니다.", imageURL: nil),
-        NewsItem(title: "여섯 번째 뉴스 제목", content: "여섯 번째 뉴스의 내용입니다. 이것은 샘플 데이터입니다.", imageURL: nil),
-        NewsItem(title: "일곱 번째 뉴스 제목", content: "일곱 번째 뉴스의 내용입니다. 이것은 샘플 데이터입니다.", imageURL: nil),
-        NewsItem(title: "여덟 번째 뉴스 제목", content: "여덟 번째 뉴스의 내용입니다. 이것은 샘플 데이터입니다.", imageURL: nil),
-        NewsItem(title: "아홉 번째 뉴스 제목", content: "아홉 번째 뉴스의 내용입니다. 이것은 샘플 데이터입니다.", imageURL: nil),
-        NewsItem(title: "열 번째 뉴스 제목", content: "열 번째 뉴스의 내용입니다. 이것은 샘플 데이터입니다.", imageURL: nil),
-    ]
+    private var newsItems: [NewsItem] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollectionView()
         configureDataSource()
-        applySnapshot()
+        fetchNews()
     }
     
     // MARK: - CollectionView Setup
@@ -50,32 +37,30 @@ class ViewController: UIViewController, UICollectionViewDelegate {
     // MARK: - Compositional Layout
     private func createCompositionalLayout() -> UICollectionViewLayout {
         // Item
-        let itemSize = NSCollectionLayoutSize(
+        let itemSize: NSCollectionLayoutSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1.0),
             heightDimension: .estimated(120)
         )
-        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        let item: NSCollectionLayoutItem = NSCollectionLayoutItem(layoutSize: itemSize)
         
         // Group
-        let groupSize = NSCollectionLayoutSize(
+        let groupSize: NSCollectionLayoutSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1.0),
             heightDimension: .estimated(120)
         )
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+        let group: NSCollectionLayoutGroup = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
         
         // Section
-        let section = NSCollectionLayoutSection(group: group)
+        let section: NSCollectionLayoutSection = NSCollectionLayoutSection(group: group)
         section.interGroupSpacing = 10
         section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 16, bottom: 10, trailing: 16)
         
         // Layout
-        let layout = UICollectionViewCompositionalLayout(section: section)
+        let layout: UICollectionViewCompositionalLayout = UICollectionViewCompositionalLayout(section: section)
         return layout
     }
     
     private func configureDataSource() {
-        guard let collectionView = collectionView else { return }
-        
         dataSource = UICollectionViewDiffableDataSource<Section, NewsItem>(
             collectionView: collectionView
         ) { collectionView, indexPath, newsItem in
@@ -99,21 +84,19 @@ class ViewController: UIViewController, UICollectionViewDelegate {
         snapshot.appendItems(newsItems, toSection: .main)
         dataSource?.apply(snapshot, animatingDifferences: true)
     }
-    
-    // MARK: - Temp) 데이터 추가/삭제
-    func addNewsItem() {
-        let newItem = NewsItem(
-            title: "새로운 뉴스 제목",
-            content: "새로 추가된 뉴스 내용입니다.",
-            imageURL: nil
-        )
-        newsItems.append(newItem)
-        applySnapshot()
-    }
-    
-    func removeNewsItem(at index: Int) {
-        guard index < newsItems.count else { return }
-        newsItems.remove(at: index)
-        applySnapshot()
+
+    func fetchNews() {
+        APIClient.shared.fetchNaverNews(query: "인공지능") { result in
+            switch result {
+            case .success(let response):
+                self.newsItems = response.items
+                DispatchQueue.main.async {
+                    self.applySnapshot()
+                }
+                print("뉴스 개수: \(response.items.count)")
+            case .failure(let error):
+                print("뉴스 불러오기 실패: \(error)")
+            }
+        }
     }
 }

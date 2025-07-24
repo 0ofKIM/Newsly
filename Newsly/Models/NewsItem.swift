@@ -7,17 +7,32 @@
 
 import Foundation
 
-struct NewsItem: Hashable {
-    let id = UUID()
+struct NaverNewsResponse: Codable {
+    let lastBuildDate: String?
+    let total: Int?
+    let start: Int?
+    let display: Int?
+    let items: [NewsItem]
+}
+
+struct NewsItem: Codable, Hashable {
+    var id: String { originallink }
+
     let title: String
-    let content: String
-    let imageURL: String?
-    
+    let originallink: String
+    let link: String
+    let description: String
+    let pubDate: String
+
+    private enum CodingKeys: String, CodingKey {
+        case title, originallink, link, description, pubDate
+    }
+
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
-    
+
     static func == (lhs: NewsItem, rhs: NewsItem) -> Bool {
-        return lhs.id == rhs.id
+        lhs.id == rhs.id
     }
-} 
+}
