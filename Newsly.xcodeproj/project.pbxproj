@@ -6,6 +6,11 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		52F308122E2E73C10066ED1B /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 52F308112E2E73C10066ED1B /* Alamofire */; };
+		52F308142E2E73C10066ED1B /* AlamofireDynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 52F308132E2E73C10066ED1B /* AlamofireDynamic */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		52217EC92E2B8F76004E82FF /* Newsly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Newsly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -36,6 +41,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52F308122E2E73C10066ED1B /* Alamofire in Frameworks */,
+				52F308142E2E73C10066ED1B /* AlamofireDynamic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +85,8 @@
 			);
 			name = Newsly;
 			packageProductDependencies = (
+				52F308112E2E73C10066ED1B /* Alamofire */,
+				52F308132E2E73C10066ED1B /* AlamofireDynamic */,
 			);
 			productName = Newsly;
 			productReference = 52217EC92E2B8F76004E82FF /* Newsly.app */;
@@ -108,6 +117,7 @@
 			mainGroup = 52217EC02E2B8F76004E82FF;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
+				52F308102E2E73C10066ED1B /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 52217ECA2E2B8F76004E82FF /* Products */;
@@ -339,6 +349,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		52F308102E2E73C10066ED1B /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.10.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		52F308112E2E73C10066ED1B /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 52F308102E2E73C10066ED1B /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		52F308132E2E73C10066ED1B /* AlamofireDynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 52F308102E2E73C10066ED1B /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = AlamofireDynamic;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 52217EC12E2B8F76004E82FF /* Project object */;
 }
