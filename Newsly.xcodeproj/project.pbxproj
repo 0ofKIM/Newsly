@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		52F308122E2E73C10066ED1B /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 52F308112E2E73C10066ED1B /* Alamofire */; };
-		52F308142E2E73C10066ED1B /* AlamofireDynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 52F308132E2E73C10066ED1B /* AlamofireDynamic */; };
+		52F308392E3269A20066ED1B /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 52F308382E3269A20066ED1B /* Alamofire */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,8 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				52F308122E2E73C10066ED1B /* Alamofire in Frameworks */,
-				52F308142E2E73C10066ED1B /* AlamofireDynamic in Frameworks */,
+				52F308392E3269A20066ED1B /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,8 +83,7 @@
 			);
 			name = Newsly;
 			packageProductDependencies = (
-				52F308112E2E73C10066ED1B /* Alamofire */,
-				52F308132E2E73C10066ED1B /* AlamofireDynamic */,
+				52F308382E3269A20066ED1B /* Alamofire */,
 			);
 			productName = Newsly;
 			productReference = 52217EC92E2B8F76004E82FF /* Newsly.app */;
@@ -117,7 +114,7 @@
 			mainGroup = 52217EC02E2B8F76004E82FF;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				52F308102E2E73C10066ED1B /* XCRemoteSwiftPackageReference "Alamofire" */,
+				52F308372E3269A20066ED1B /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 52217ECA2E2B8F76004E82FF /* Products */;
@@ -351,7 +348,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		52F308102E2E73C10066ED1B /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+		52F308372E3269A20066ED1B /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
 			requirement = {
@@ -362,15 +359,10 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		52F308112E2E73C10066ED1B /* Alamofire */ = {
+		52F308382E3269A20066ED1B /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 52F308102E2E73C10066ED1B /* XCRemoteSwiftPackageReference "Alamofire" */;
+			package = 52F308372E3269A20066ED1B /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
-		};
-		52F308132E2E73C10066ED1B /* AlamofireDynamic */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 52F308102E2E73C10066ED1B /* XCRemoteSwiftPackageReference "Alamofire" */;
-			productName = AlamofireDynamic;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
