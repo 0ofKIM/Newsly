@@ -17,14 +17,10 @@ class NewsCollectionViewCell: UICollectionViewCell {
     }
 
     func configure(with newsItem: NewsItem) {
-        if let imageURL = newsItem.imageURL {
-            // 이미지 로드 로직
-        } else {
-            imageView.backgroundColor = .systemGray5
-            imageView.image = UIImage(systemName: "newspaper")
-        }
+        imageView.backgroundColor = .systemGray5
+        imageView.image = UIImage(systemName: "newspaper")
         
         titleLabel.text = newsItem.title
-        contentsLabel.text = newsItem.content
+        contentsLabel.text = newsItem.description
     }
 }
