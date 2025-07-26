@@ -17,7 +17,6 @@ struct NaverNewsResponse: Codable {
 
 struct NewsItem: Codable, Hashable {
     var id: String { originallink }
-
     let title: String
     let originallink: String
     let link: String
